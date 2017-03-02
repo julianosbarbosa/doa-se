@@ -1,0 +1,22 @@
+{
+  "name": "doa-se",
+  "version": "0.0.1",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julianosbarbosa/doa-se.git"
+  },
+  "author": "Juliano da Silva Barbosa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/julianosbarbosa/doa-se/issues"
+  },
+  "homepage": "https://github.com/julianosbarbosa/doa-se#readme"
+}
