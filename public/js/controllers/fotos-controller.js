@@ -2,7 +2,9 @@ angular.module('doa-se').controller('FotosController', function($scope, recursoF
     // chama o module principal e no controller tem 2 parametros o nome quem é um camelcase com letras maiusculas que define o seu controller e uma function
     //$scope deixa a variavel visisvel para a view
     $scope.fotos = [];
+    //$scope.filtro = '' le os dados da view com o objeto fotos  
     $scope.filtro = '';
+    //$scope.filtro = '' recebe dados do que é prenchido na veiw com a propriedade filter:filtro e devolve o ng-repeat filtrado
     $scope.mensagem = '';
 
     recursoFoto.query(function(fotos) {

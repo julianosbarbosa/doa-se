@@ -23,7 +23,8 @@
         </div>
         <div class="col-md-3"></div>
         <div class="col-md-3">
-            <input class="form-control" placeholder="filtrar pelo título da foto" ng-model="filtro" ng-model-options="{ debounce: 500 }">
+            <input class="form-control" placeholder="filtrar o anuncio" ng-model="filtro" ng-model-options="{ debounce: 500 }">
+            <!--ng-model-options="{ debounce: 500 }" faz um deley para dar um tempo para o usuario digitar-->
         </div>
     </form>
 </div>
@@ -31,7 +32,9 @@
 
 <div class="row">
     <meu-painel class="col-md-2 painel-animado" ng-repeat="foto in fotos | filter: filtro" titulo="Doa-se {{foto.titulo}}">
-        <!--ng-repeat reproduz a tag com suas filhas ate o final do array do controller no caso fotos -->
+        <!--ng-repeat reproduz a tag com suas filhas ate o final do array do controller no caso fotos e tem propriedades de filtro-->
+        <!--ng-model faz a comunicação de envio e recebimento de dados da controller -->
+
         <minha-foto url="{{foto.url}}" alt="{{foto.titulo}}"></minha-foto>
         <!--angular expression data binding variaveis angular dentro do html objeto foto .url .titulo .id-->
 
