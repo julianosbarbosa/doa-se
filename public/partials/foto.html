@@ -1,14 +1,15 @@
+<!--foto controller é do cadastro de foto-->
 <div class="page-header text-center">
-    <h1>Doa-se {{foto.titulo}}</h1>
+    <h1>Doa-se {{foto.titulo}}</h1> <!--angular expression ="foto.titulo" exibe titulo q busca na controler-->
 </div>
 
 <p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
 
-<form novalidate name="formulario" class="row" ng-submit="submeter()">
+<form novalidate name="formulario" class="row" ng-submit="submeter()"><!-- quanos o usuario clicar en enviar chama a função submit-->
     <div class="col-md-6">
         <div class="form-group">
             <label>Título</label>
-            <input name="titulo" class="form-control" ng-model="foto.titulo" required>
+            <input name="titulo" class="form-control" ng-model="foto.titulo" required> <!--ng-model="foto.titulo" grava envia titulo para a controler-->
 
             <span ng-show="formulario.$submitted && formulario.titulo.$error.required" class="form-control alert-danger">
 				Título obrigatório
@@ -48,6 +49,6 @@
         <hr>
     </div>
     <div class="col-md-6">
-        <minha-foto url="{{foto.url}}" titulo="{{foto.titulo}}"></minha-foto>
+        <minha-foto url="{{foto.url}}" titulo="{{foto.titulo}}"></minha-foto> <!-- diretiva  que carrega imagen da foto-->
     </div>
 </form>

@@ -1,3 +1,4 @@
+//<!--fotos controller é da principal-->
 angular.module('doa-se')
 	.controller('FotoController', function($scope, recursoFoto, $routeParams, cadastroDeFotos) {
 
@@ -13,7 +14,7 @@ angular.module('doa-se')
 			});
 		}
 
-		$scope.submeter = function() {
+		$scope.submeter = function() { //após o click do usuario no submit da view foto o ng-submit="submeter()" chama essa funçao
 
 			if ($scope.formulario.$valid) {
 				cadastroDeFotos.cadastrar($scope.foto)

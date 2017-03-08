@@ -1,3 +1,4 @@
+//<!--fotos controller é da principal-->
 angular.module('doa-se').controller('FotosController', function($scope, recursoFoto) {
     // chama o module principal e no controller tem 2 parametros o nome quem é um camelcase com letras maiusculas que define o seu controller e uma function
     //$scope deixa a variavel visisvel para a view
