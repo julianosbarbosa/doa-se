@@ -13,7 +13,7 @@ $locationProvider.html5Mode(true);
             controller: 'FotoController'
         });
 
-        $routeProvider.when('/fotos/edit/:fotoId', {
+        $routeProvider.when('/fotos/edit/:fotoId', { // :fotoId é um curinga da acesso ao controller o id que vai ser alterado  
             templateUrl: 'partials/foto.html',
             controller: 'FotoController'
         });

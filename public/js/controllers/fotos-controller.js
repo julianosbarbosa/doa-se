@@ -14,15 +14,15 @@ angular.module('doa-se').controller('FotosController', function($scope, recursoF
         console.log(erro);
     });
 
-    $scope.remover = function(foto) {
+    $scope.remover = function(foto) {//função  que remove a foto
 
         recursoFoto.delete({ fotoId: foto._id }, function() {
-            var indiceDaFoto = $scope.fotos.indexOf(foto);
-            $scope.fotos.splice(indiceDaFoto, 1);
-            $scope.mensagem = 'Foto ' + foto.titulo + ' removida com sucesso!';
+            var indiceDaFoto = $scope.fotos.indexOf(foto); //o indece da foto que vai ser removida
+            $scope.fotos.splice(indiceDaFoto, 1);// $scope.fotos.splice remove a foto e passa 1 no pararmetro
+            $scope.mensagem = 'Foto ' + foto.titulo + ' removida com sucesso!';//mensagem para o usuario
         }, function(erro) {
             console.log(erro);
-            $scope.mensagem = 'Não foi possível apagar a foto ' + foto.titulo;
+            $scope.mensagem = 'Não foi possível apagar a foto ' + foto.titulo;//mensagem para o usuario
         });
     };
 

@@ -3,15 +3,15 @@
     <h1>Doa-se {{foto.titulo}}</h1> <!--angular expression ="foto.titulo" exibe titulo q busca na controler-->
 </div>
 
-<p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+<p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p><!--mensagem.length que ta definida em foto controler for maior q zero é verdadeiro e exibe a menssagem-->
 
 <form novalidate name="formulario" class="row" ng-submit="submeter()"><!-- quanos o usuario clicar en enviar chama a função submit-->
     <div class="col-md-6">
         <div class="form-group">
             <label>Título</label>
-            <input name="titulo" class="form-control" ng-model="foto.titulo" required> <!--ng-model="foto.titulo" grava envia titulo para a controler-->
+            <input name="titulo" class="form-control" ng-model="foto.titulo" required> <!--ng-model="foto.titulo" grava envia titulo para a controler.....novalidate  para desabilitar  a validaçao do html5 e usar a do angular-->
 
-            <span ng-show="formulario.$submitted && formulario.titulo.$error.required" class="form-control alert-danger">
+            <span ng-show="formulario.$submitted && formulario.titulo.$error.required" class="form-control alert-danger"><!--ng-show mostra a mesnsagem de erro se formulario.titulo.$error.required nao for <preenchido></preenchido>.........formulario.$submitted para a menssagem de erro aparecer somente depois de clicar em submit-->
 				Título obrigatório
 			</span>
             <span ng-show="formulario.$submitted && formulario.titulo.$error.maxlength" class="form-control alert-danger">
@@ -44,7 +44,7 @@
 
         <button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">
 			Salvar
-		</button>
+		</button><!-- ng-disabled="formulario.$invalid" desabilita o botao salvar enquanto o formulario não for valido-->
         <a href="/#/fotos" class="btn btn-primary">Voltar</a>
         <hr>
     </div>

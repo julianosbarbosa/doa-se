@@ -43,10 +43,10 @@
             <i class="material-icons left">thumb_up</i>Eu Quero
         </a>
         <div style="display:inline">
-            <a class="btn btn-primary btn-block" href="/#/fotos/edit/{{foto._id}}">
+            <a class="btn btn-primary btn-block" href="/#/fotos/edit/{{foto._id}}"><!--o botao editar passa /#/fotos/edit/{{foto._id}} -->
                 <i class="material-icons left">mode_edit</i>Editar
             </a>
-            <meu-botao-perigo nome="Remover" acao="remover(foto)"> Remover</meu-botao-perigo>
+            <meu-botao-perigo nome="Remover" acao="remover(foto)"> Remover</meu-botao-perigo> <!--ng-click="remover()" executa a função no controller fotos-controller remover-->
         </div>
     </meu-painel>
 </div>
