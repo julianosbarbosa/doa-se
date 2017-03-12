@@ -8,7 +8,7 @@ angular.module('doa-se').controller('FotosController', function($scope, recursoF
     //$scope.filtro = '' recebe dados do que é prenchido na veiw com a propriedade filter:filtro e devolve o ng-repeat filtrado
     $scope.mensagem = '';
 
-    recursoFoto.query(function(fotos) {
+    recursoFoto.query(function(fotos) {//.query ele faz o v1/fotos
         $scope.fotos = fotos;
     }, function(erro) {
         console.log(erro);
