@@ -39,8 +39,8 @@ angular.module('minhasDiretivas', [])
         var ddo = {};
         ddo.restrict = "E";
         ddo.scope = {
-            nome: '@',
-            acao: '&'
+            nome: '@',// @ é uma copia
+            acao: '&' // & é uma expresão a ser avaliada pelo controller
         }
         ddo.template = '<button class="btn btn-danger btn-block" ng-click="acao()"><i class="material-icons left">delete</i>{{nome}}</button>';
 
