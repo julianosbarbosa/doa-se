@@ -1,10 +1,11 @@
 angular.module('doa-se', ['minhasDiretivas', 'ngAnimate', 'ngRoute', 'ngResource', 'meusServicos'])
+    //meusServicos é o service que trata requisiçoes ao servidor
     //modulo principal usa o objeto global>>angular. tem 2 parametros primeiro o nome do app e o segundo é um arrey com os modulos que vao ser usados
     .config(function($routeProvider, $locationProvider) { //a funçao $routeProvider do ngRoute cnfigura rotas
-$locationProvider.html5Mode(true);
-//$locationProvider faz com que a url nao apareça o #
+        $locationProvider.html5Mode(true);
+        //$locationProvider faz com que a url nao apareça o #
         $routeProvider.when('/fotos', { //quando tiver no browser /fotos
-            templateUrl: 'partials/principal.html',  //chama o template partials/principal.html
+            templateUrl: 'partials/principal.html', //chama o template partials/principal.html
             controller: 'FotosController' //e o controller que esta sendo usado 
         });
 
