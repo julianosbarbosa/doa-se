@@ -1,12 +1,19 @@
-var express = require('express'), //modulo que executa as requisições de cada pagina que é solicitado ao servidor
-    app = express(), //estancio meu express no app 
-    bodyParser = require('body-parser'),
-    routes = require('../app/routes');
+var express = require('express');
+var consign = require('consign');
+var bodyParser = require('body-parser');
+var path = require('path');
 
-app.use(express.static('./public')); // static medleware que passa a pasta que vai ser assistida pelo express
-app.use(bodyParser.urlencoded({ extended: true }));
+var app = express();
+
+app.set('secret', 'homemavestruz');
+app.use(express.static('./public'));
 app.use(bodyParser.json());
 
-routes(app);
+consign({ cwd: 'app' })
+    .include('models')
+    .then('api')
+    .then('routes/auth.js')
+    .then('routes')
+    .into(app);
 
-module.exports = app; // exporta para o meu server.js
+module.exports = app;

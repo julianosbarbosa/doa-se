@@ -1,23 +1,20 @@
 angular.module('minhasDiretivas', [])
-    //modulo minhasDiretivas chamado no modulo principal
-    .directive('meuPainel', function() {
-        //directive tem 2 aparametros nome camelcase que vai ser usado no nome com ifen html e uma função
-        var ddo = {};
-        //toda diretiva tem que devolver um ddo que é a diretiva  configurada
-        ddo.restrict = "AE";
-        //primeiro passa restrições AE Atributo e Elementos
-        ddo.transclude = true;
-        //ddo.transclude faz com que a diretiva reconheça os elementos filhos no html
+	.directive('meuPainel', function() {
 
-        ddo.scope = {
+		var ddo = {};
+
+		ddo.restrict = "AE";
+        ddo.transclude = true;
+
+
+		ddo.scope = {
             titulo: '@'
         };
 
-        ddo.templateUrl = 'js/directives/meu-painel.html'; //templateUrl usa o html fora do javascript
+        ddo.templateUrl = 'js/directives/meu-painel.html';
 
-        return ddo;
-        //toda diretiva tem que devolver um ddo que é a diretiva  configurada
-    })
+		return ddo;
+	})
     .directive('minhaFoto', function() {
 
         var ddo = {};
@@ -25,24 +22,22 @@ angular.module('minhasDiretivas', [])
         ddo.restrict = "AE";
 
         ddo.scope = {
-            //ddo.scope encpsula as informaçoes dentro da diretiva para poder ser usadas em outas views
             titulo: '@',
             url: '@'
-                //titulo: '@' url: '@' é como eu passo informaçoes de string para dentro da minha diretiva
         };
 
-        ddo.template = '<img class="img-responsive center-block" src="{{url}}" alt="{{titulo}}">';
-        //  ddo.template é p html que vai ser substituido pela minha diretiva
+        ddo.template = '<img class="img-responsive center-block" src="{{url}}" alt="{{titulo}}">';           
+        
         return ddo;
     })
     .directive('meuBotaoPerigo', function() {
         var ddo = {};
         ddo.restrict = "E";
         ddo.scope = {
-            nome: '@',// @ é uma copia
-            acao: '&' // & é uma expresão a ser avaliada pelo controller
+            nome: '@',
+            acao : '&'
         }
-        ddo.template = '<button class="btn btn-danger btn-block" ng-click="acao()"><i class="material-icons left">delete</i>{{nome}}</button>';
+        ddo.template = '<button class="btn btn-danger btn-block" ng-click="acao()">{{nome}}</button>';
 
         return ddo;
     });

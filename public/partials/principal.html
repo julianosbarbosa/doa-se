@@ -1,53 +1,33 @@
-<!--fotos controller é da principal-->
 <div class="jumbotron">
-
+	<h1 class="text-center">doa-se</h1>
 </div>
+
 <p ng-show="mensagem.length" class="alert alert-info">
-    {{mensagem}}
+	{{mensagem}}
 </p>
-<div class="row">
-    <form>
-        <div class="dropdown col-md-2">
-            <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-				<i class="material-icons left">playlist_add</i>Categorias<span class="caret"></span>
-			</button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-            </ul>
-        </div>
-        <div class="col-md-3">
-            <a href="fotos/new" class="btn btn-info large"><i class="material-icons left">playlist_add</i>Cadastrar uma doação</a>
-        </div>
-        <div class="col-md-3"></div>
-        <div class="col-md-3">
-            <input class="form-control" placeholder="filtrar o anuncio" ng-model="filtro" ng-model-options="{ debounce: 500 }">
-            <!--ng-model-options="{ debounce: 500 }" faz um deley para dar um tempo para o usuario digitar-->
-        </div>
-    </form>
-</div>
-<!-- fim row -->
 
 <div class="row">
-    <meu-painel class="col-md-2 painel-animado" ng-repeat="foto in fotos | filter: filtro" titulo="Doa-se {{foto.titulo}}">
-        <!--ng-repeat reproduz a tag com suas filhas ate o final do array do controller no caso fotos e tem propriedades de filtro-->
-        <!--ng-model faz a comunicação de envio e recebimento de dados da controller -->
+	<div class="col-md-12">
+		<form>
+			<div class="input-group">
+				<span class="input-group-btn">
+					<a href="/#/fotos/new" class="btn btn-primary" type="button">
+						Nova foto
+					</a>
+				</span>
+				<input class="form-control" placeholder="filtrar pelo título da foto" 
+					ng-model="filtro" ng-model-options="{ debounce: 500 }">
+		</form>
+	</div> <!-- fim col-md-12 -->
+</div> <!-- fim row -->
 
+<div class="row">
+    <meu-painel class="col-md-2 painel-animado" ng-repeat="foto in fotos | filter: filtro" titulo="{{foto.titulo}}">
         <minha-foto url="{{foto.url}}" alt="{{foto.titulo}}"></minha-foto>
-        <!--angular expression data binding variaveis angular dentro do html objeto foto .url .titulo .id-->
 
-        <a class="btn btn-success btn-block" href="{{foto._id}}">
-            <i class="material-icons left">thumb_up</i>Eu Quero
-        </a>
-        <div style="display:inline">
-            <a class="btn btn-primary btn-block" href="/#/fotos/edit/{{foto._id}}"><!--o botao editar passa /#/fotos/edit/{{foto._id}} -->
-                <i class="material-icons left">mode_edit</i>Editar
-            </a>
-            <meu-botao-perigo nome="Remover" acao="remover(foto)"> Remover</meu-botao-perigo> <!--ng-click="remover()" executa a função no controller fotos-controller remover-->
-        </div>
+		<a class="btn btn-primary btn-block" href="/#/fotos/edit/{{foto._id}}">
+			Editar
+		</a>
+		<meu-botao-perigo nome="Remover" acao="remover(foto)">Remover</meu-botao-perigo>
     </meu-painel>
 </div>
-<!-- fim row -->
